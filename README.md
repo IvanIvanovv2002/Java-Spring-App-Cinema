@@ -25,6 +25,9 @@ Welcome to the Java Spring Boot Cinema Application! This server-side rendering a
 - **Spring-Validation**: Validations on the server side.
 ## Dependencies
 
+### Email sending
+- **Email** sending is possible in this project and it is included in the reservation of a ticket or deleting an account.
+
 The project's `pom.xml` file lists the following key dependencies:
 
 - **Spring Boot**: The core framework for building Java applications.
@@ -37,7 +40,7 @@ The project's `pom.xml` file lists the following key dependencies:
 - **Lombok**: Gives shortcuts in OOP and makes the code more readable.
 - **Testing**: jUnit tests for the application
 - **Thymeleaf**: A templating engine for server-side rendering.
-
+- **Spring-Boot-Mail**: Configure the application to be able to send emails.
 ## Getting Started
 
 To run this application on your local machine, follow these steps:
