@@ -22,7 +22,7 @@ Welcome to the Java Spring Boot Cinema Application! This server-side rendering a
 ### Security
 - **Spring Security**: Robust security measures are in place to protect user data and application resources.
 - **Validation**: Front-end validations are implemented with Bootstrap, and back-end validations ensure data integrity.
-
+- **Spring-Validation**: Validations on the server side.
 ## Dependencies
 
 The project's `pom.xml` file lists the following key dependencies:
@@ -30,8 +30,12 @@ The project's `pom.xml` file lists the following key dependencies:
 - **Spring Boot**: The core framework for building Java applications.
 - **Spring Security**: For implementing robust security measures.
 - **Spring Data JPA**: Simplifies database operations with JPA.
+- **Model Mapper**: Gives the ability to map an object, to another object.
+- **Spring-Boot-Validation**: Covers the application with some basic validations, on the server layer.
+- **Spring-Boot-AOP**: Provide Aspect-Orietented Programming features in the application. 
 - **Bootstrap**: Provides a responsive and user-friendly front-end design.
-- **H2 Database**: An in-memory database for storing user and movie data during development.
+- **Lombok**: Gives shortcuts in OOP and makes the code more readable.
+- **Testing**: jUnit tests for the application
 - **Thymeleaf**: A templating engine for server-side rendering.
 
 ## Getting Started
@@ -46,8 +50,5 @@ To run this application on your local machine, follow these steps:
 ## Contact Information
 
 If you have any questions or need more information about this amateur app, please feel free to contact the developer:
-
-- **Developer**: Your Name
-- **Email**: your.email@example.com
 
 Thank you for checking out our Java Spring Boot Cinema Application! We hope you enjoy using it to explore and watch your favorite movies.
