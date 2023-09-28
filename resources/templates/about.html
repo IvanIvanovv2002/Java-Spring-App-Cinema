@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Movie Review | About</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="/css/style.css">
+		
+		<!--[if lt IE 9]>
+		<script src="../static/js/ie-support/html5.js"></script>
+		<script src="../static/js/ie-support/respond.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div id="site-content">
+			<header th:include="fragments/navigation"></header>
+			<main class="main-content">
+				<div class="container">
+					<div class="page">
+						<div class="breadcrumbs">
+							<a th:href="@{/}">Home</a>
+							<span>About us</span>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<figure><img src="/images/cinema.jpg" style="height: 500px" alt="figure image"></figure>
+							</div>
+							<div class="col-md-8">
+								<p class="leading">Cinema city is the <b>number 1 </b> leading company at the current market.</p>
+								<p>Welcome to Cinema City: Where Entertainment Meets Excellence
+
+									At Cinema City, we believe in the transformative power of cinema. We are not just a company; we are a destination where storytelling transcends boundaries, emotions come to life, and dreams are projected onto the silver screen. With a legacy of cinematic excellence spanning decades, Cinema City is more than just a place to watch movies; it's an immersive experience that takes you on a journey of emotions, adventures, and unforgettable moments.
+
+									Our passion for film is at the heart of everything we do. We are committed to delivering exceptional experiences, from the latest blockbusters to indie gems, and from timeless classics to cutting-edge technology that brings the magic of cinema to life. Our theaters are not just venues; they are the canvas upon which dreams are painted, and memories are made.
+
+									But Cinema City is more than just movies. We are a cultural hub, a gathering place for communities, and a platform for diverse voices in film. We celebrate the art of storytelling in all its forms, showcasing films that reflect the rich tapestry of human experiences and fostering a sense of connection among our patrons.
+
+									Our commitment to excellence extends beyond the screen. We prioritize the safety, comfort, and satisfaction of our guests, ensuring that every visit is a memorable one. From our friendly staff to our state-of-the-art facilities, we leave no stone unturned in creating an environment where you can lose yourself in the magic of cinema.
+								</p>
+							</div>
+						</div>
+						
+						<h2 class="section-title">Our Team</h2>
+						<div class="row">
+
+							<div class="col-md-3">
+								<div class="team">
+									<figure class="team-image"><img src="/images/person1.jpg" alt=""></figure>
+									<h2 class="team-name">John Doe</h2>
+									<small class="team-title">Co-founder</small>
+									<div class="social-links">
+										<a href="" class="facebook"><i class="fa fa-facebook"></i></a>
+										<a href="" class="twitter"><i class="fa fa-twitter"></i></a>
+										<a href="" class="google-plus"><i class="fa fa-instagram"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="team">
+									<figure class="team-image"><img src="/images/person2.jpg" alt=""></figure>
+									<h2 class="team-name">Sarah Johnson</h2>
+									<small class="team-title">Managing Director</small>
+									<div class="social-links">
+										<a href="" class="facebook"><i class="fa fa-facebook"></i></a>
+										<a href="" class="twitter"><i class="fa fa-twitter"></i></a>
+										<a href="" class="google-plus"><i class="fa fa-instagram"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="team">
+									<figure class="team-image"><img src="/images/person3.jpg" alt=""></figure>
+									<h2 class="team-name">Bradley Martin</h2>
+									<small class="team-title">Reviewer</small>
+									<div class="social-links">
+										<a href="" class="facebook"><i class="fa fa-facebook"></i></a>
+										<a href="" class="twitter"><i class="fa fa-twitter"></i></a>
+										<a href="" class="google-plus"><i class="fa fa-instagram"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="team">
+									<figure class="team-image"><img src="/images/person4.jpg" alt=""></figure>
+									<h2 class="team-name">Kim Jan</h2>
+									<small class="team-title">Consultant</small>
+									<div class="social-links">
+										<a href="" class="facebook"><i class="fa fa-facebook"></i></a>
+										<a href="" class="twitter"><i class="fa fa-twitter"></i></a>
+										<a href="" class="google-plus"><i class="fa fa-instagram"></i></a>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div> <!-- .container -->
+			</main>
+			<footer th:include="fragments/footer"></footer>
+		</div>
+		<!-- Default snippet for navigation -->
+		
+
+
+		<script src="../static/js/jquery-1.11.1.min.js"></script>
+		<script src="../static/js/plugins.js"></script>
+		<script src="../static/js/app.js"></script>
+		
+	</body>
+
+</html>

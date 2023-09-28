@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Movie Review | Review</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="/css/style.css">
+		
+		<!--[if lt IE 9]>
+		<script src="../static/js/ie-support/html5.js"></script>
+		<script src="../static/js/ie-support/respond.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+		<div id="site-content">
+			<header th:include="fragments/navigation"></header>
+			<main class="main-content">
+				<div class="container">
+					<div class="page">
+						<div class="breadcrumbs">
+							<a th:href="@{/}">Home</a>
+							<span>Movie Review</span>
+						</div>
+
+						<div class="filters">
+							<form th:action="@{/filterMovies}" th:method="POST">
+								<select name="categoryName" id="categoryName">
+									<option value="All">-- Select Category --</option>
+									<option value="All">All</option>
+									<option value="Action">Action</option>
+									<option value="Horror">Horror</option>
+									<option value="Adventure">Adventure</option>
+									<option value="Animation">Animation</option>
+									<option value="Humour">Humour</option>
+								</select>
+								<button type="submit">Filter</button>
+							</form>
+						</div>
+
+						<div class="movie-list" th:each="movie : ${filteredMovies}">
+							<div class="movie">
+								<a th:href="@{/single/{id}(id=${movie.id})}">
+									<img th:src="${movie.detailedPicture}" alt="#">
+								</a>
+								<div class="movie-title"><a th:text="${movie.movieName}" th:href="@{/single/{id}(id=${movie.id})}"></a></div>
+							</div>
+						</div>
+
+
+						<div class="pagination">
+							<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+							<span class="page-number current">1</span>
+							<a href="#" class="page-number">2</a>
+							<a href="#" class="page-number">3</a>
+							<a href="#" class="page-number">4</a>
+							<a href="#" class="page-number">5</a>
+							<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer th:include="fragments/footer"></footer>
+		</div>
+		<!-- Default snippet for navigation -->
+		<script src="../static/js/jquery-1.11.1.min.js"></script>
+		<script src="../static/js/plugins.js"></script>
+		<script src="../static/js/app.js"></script>
+	</body>
+
+</html>

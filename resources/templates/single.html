@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+		<title>Movie Review | Single</title>
+
+
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/modal.css">
+
+		<script src="../static/js/ie-support/html5.js"></script>
+		<script src="../static/js/ie-support/respond.js"></script>
+
+	</head>
+	<body>
+		<div id="site-content">
+			<header th:include="fragments/navigation"></header>
+			<main class="main-content">
+				<div class="container">
+					<div th:object="${movie}" class="page">
+						<div class="breadcrumbs">
+							<a th:href="@{/}">Home</a>
+							<a th:href="@{/reviews}">Movie Review</a>
+							<span th:text="${movie.movieName}"></span>
+						</div>
+						<div class="content">
+							<div class="row">
+								<section id="video">
+									<iframe width="500" height="500" th:src="'https://www.youtube.com/embed/' + ${movie.videoUrl}" id="frame"></iframe>
+								</section>
+								<div class="col-md-6">
+									<h2 class="movie-title" th:text="${movie.movieName}"></h2>
+									<div class="movie-summary">
+										<span th:text="${movie.shortDescription}"></span>
+									</div>
+									<ul class="movie-meta">
+										<li><strong>Rating:</strong>
+											<div class="star-rating" title="Rated 4.00 out of 5"><span style="width:80%"><strong class="rating">4.00</strong> out of 5</span></div>
+										</li>
+										<li><strong>Length:</strong> <span th:text="${movie.length}"></span> min</li>
+										<li><strong>Premiere: </strong><span th:text="${movie.premiere}"></span></li>
+										<li><strong>Category: </strong><span th:text="${movie.category.name}"></span></li>
+										<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Book a ticket</button>
+										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h1 class="modal-title fs-5" id="exampleModalLabel">Book a Ticket</h1>
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<div th:object="${user}" class="modal-body">
+														<form id="ticketForm" th:method="POST" th:action="@{/single/{id}/reservation(id=${movie.id})}">
+															<div class="mb-3">
+																<label class="col-form-label">@Email</label>
+																<span class="form-control" th:text="${user.email}"></span>
+															</div>
+															<div class="mb-3">
+																<span class="form-control" th:text="'Ticket price: ' + ${movie.price} + '$'"></span>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+																<button type="submit" class="btn btn-primary">Submit</button>
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+									</ul>
+								</div>
+							</div>
+							<div class="text-center"><b>Additional Movie Info: </b></div><!-- .row -->
+							<div class="entry-content text-center">
+								<span th:text="${movie.longDescription}"></span>
+							</div>
+						</div>
+					</div>
+				</div> <!-- .container -->
+			</main>
+		</div>
+		<!-- Default snippet for navigation -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="../static/js/plugins.js"></script>
+		<script src="../static/js/app.js"></script>
+	</body>
+
+</html>

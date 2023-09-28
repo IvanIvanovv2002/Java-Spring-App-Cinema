@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register Form</title>
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+                <form th:object="${registerDTO}" th:method="POST" th:action="@{/register}" id="signup-form" class="signup-form">
+                    <h2 style="color: white; font-weight: bold;">Register Page</h2>
+                    <div class="form-group">
+                        <input type="text" th:field="*{username}" required minlength="5" maxlength="25" class="form-input" name="username" id="name" placeholder="Username"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" th:field="*{age}" required class="form-input" name="age" id="age" placeholder="Age" min = 18/>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" th:field="*{email}" required class="form-input" name="email" id="email" placeholder="Email"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" th:field="*{password}" required minlength="5" maxlength="25" class="form-input" name="password" id="password" placeholder="Password"/>
+                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                    </div>
+                    <div class="form-group">
+                        <input th:field="*{mobileNumber}" required minlength="10" maxlength="10" class="form-input" name="number" id="number" placeholder="Phone number"/>
+                    </div>
+                    <ul th:if="${#fields.hasErrors('*')}">
+                        <div th:each="err : ${#fields.errors('*')}" class="alert alert-danger" role="alert" style="color: red; font-weight: bold; font-style: italic;">
+                            <span th:text="${err}" style="font-weight: normal;"></span>
+                        </div>
+                    </ul>
+                    <div class="form-group">
+                        <input type="checkbox"  name="agree-term" id="agree-term" class="agree-term" />
+                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a id="terms-link" href="#" class="term-service">Terms of service</a></label>
+                        <div class="alert alert-danger" id="agree-alert" role="alert">
+                            You must agree to the terms of service before submitting.
+                        </div>
+                        <div th:if="${userExists}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>User already exists with these credentials !</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" id="submit" class="form-submit submit" value="Sign up"/>
+                        <a th:href="@{/login}" class="submit-link submit">Login</a>
+                    </div>
+                </form>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Terms and Conditions</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Account Registration</h5>
+                            <p>
+                                1.1. You may need to create an account to use certain features of the App. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.
+                            </p>
+                            <p>
+                                1.2. You are responsible for maintaining the confidentiality of your account and password and for restricting access to your device to prevent unauthorized access to your account. You agree to accept responsibility for all activities that occur under your account.
+                            </p>
+
+                            <h5>Content</h5>
+                            <p>
+                                2.1. The content available through the App may include but is not limited to movie listings, showtimes, reviews, and other related information. We do not endorse or guarantee the accuracy, completeness, or usefulness of any content provided through the App.
+                            </p>
+                            <p>
+                                2.2. You agree not to reproduce, distribute, modify, display, perform, publish, license, create derivative works from, offer for sale, or use any content available on or through the App for any unauthorized purpose.
+                            </p>
+
+                            <h5>Ticket Booking and Purchases</h5>
+                            <p>
+                                3.1. The App may allow you to book and purchase movie tickets. Any transactions made through the App are subject to our refund and cancellation policy, which is available on the App and incorporated by reference into these Terms.
+                            </p>
+
+                            <h5>User Conduct</h5>
+                            <p>
+                                4.1. You agree not to:
+                            </p>
+                            <ul>
+                                <li>a. Use the App for any illegal or unauthorized purpose.</li>
+                                <li>b. Interfere with or disrupt the operation of the App.</li>
+                                <li>c. Violate any applicable laws, rules, or regulations.</li>
+                                <li>d. Attempt to gain unauthorized access to any part of the App.</li>
+                                <li>e. Engage in any conduct that restricts or inhibits any other user from using or enjoying the App.</li>
+                            </ul>
+
+                            <h5>Termination</h5>
+                            <p>
+                                5.1. We reserve the right to terminate or suspend your account and access to the App at our discretion, without notice, for any violation of these Terms or for any other reason.
+                            </p>
+
+                            <h5>Privacy</h5>
+                            <p>
+                                6.1. Your use of the App is subject to our Privacy Policy, which is available on the App and incorporated by reference into these Terms.
+                            </p>
+
+                            <h5>Changes to Terms</h5>
+                            <p>
+                                7.1. We may revise these Terms at any time without notice. By continuing to use the App after any revisions become effective, you agree to be bound by the updated Terms.
+                            </p>
+
+                            <h5>Contact Information</h5>
+                            <p>
+                                8.1. For questions or concerns about these Terms, please contact us at [Contact Email].
+                            </p>
+
+                            <p>
+                                By using the Cinema App, you acknowledge that you have read, understood, and agreed to these Terms and our Privacy Policy. If you do not agree to these Terms, please do not use the App.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Bootstrap JavaScript after jQuery -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    <script>
+        $(document).ready(function () {
+            $("#agree-alert").hide();
+            $("#agree-term").change(function () {
+                if ($(this).is(":checked")) {
+                    $("#agree-alert").hide();
+                } else {
+                    $("#agree-alert").show();
+                }
+            });
+
+            // Add submit event listener to the form
+            $("#signup-form").submit(function (e) {
+                if (!$("#agree-term").is(":checked")) {
+                    e.preventDefault(); // Prevent form submission
+                    $("#agree-alert").show();
+                }
+            });
+
+            $("#terms-link").click(function (e) {
+                e.preventDefault();
+                $('#exampleModal').modal('show');
+            });
+        });
+    </script>
+</body>
+</html>
