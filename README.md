@@ -23,10 +23,11 @@ Welcome to the Java Spring Boot Cinema Application! This server-side rendering a
 - **Spring Security**: Robust security measures are in place to protect user data and application resources.
 - **Validation**: Front-end validations are implemented with Bootstrap, and back-end validations ensure data integrity.
 - **Spring-Validation**: Validations on the server side.
-## Dependencies
 
 ### Email sending
 - **Email** sending is possible in this project and it is included in the reservation of a ticket or deleting an account.
+  
+## Dependencies
 
 The project's `pom.xml` file lists the following key dependencies:
 
