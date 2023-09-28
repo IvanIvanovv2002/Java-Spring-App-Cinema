@@ -1,7 +1,5 @@
 # Java Spring Boot Cinema Application
 
-![Cinema Logo](link_to_cinema_logo.png)
-
 Welcome to the Java Spring Boot Cinema Application! This server-side rendering application is designed to provide an immersive movie-watching experience. It offers a wide range of features, including user registration, movie search and filtering, ticket booking, and more. Below, we'll walk you through the key features and dependencies of this application.
 
 ## Key Features
